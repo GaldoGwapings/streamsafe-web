@@ -1,5 +1,6 @@
-scikit-learn==1.7.2
+streamlit
 pandas
 numpy
 joblib
 scikit-learn
+imbalanced-learn
