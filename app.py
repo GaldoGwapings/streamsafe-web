@@ -31,9 +31,9 @@ st.markdown("""
         background-attachment: fixed;
     }
 
-    /* Reduce Top Padding to avoid empty whitespace */
+    /* --- INCREASED TOP MARGIN HERE --- */
     .block-container {
-        padding-top: 2rem !important;
+        padding-top: 6rem !important; /* Increased spacing from top */
         padding-bottom: 3rem !important;
     }
     
@@ -68,7 +68,7 @@ st.markdown("""
         font-weight: 700;
     }
     
-    /* 5. Metric Cards (Compact) */
+    /* 5. Metric Cards (Compact & Centered) */
     [data-testid="stMetric"] {
         background-color: rgba(255, 255, 255, 0.9);
         border: 1px solid #eee;
@@ -189,7 +189,6 @@ def login():
         password = st.text_input("Password", type="password", placeholder="••••••••")
         st.markdown("<br>", unsafe_allow_html=True)
         
-        # UPDATED: Replaced use_container_width=True with width="stretch"
         submitted = st.form_submit_button("Sign In", width="stretch")
         
         if submitted:
@@ -222,12 +221,10 @@ def admin_view():
     st.markdown("<br>", unsafe_allow_html=True)
     c1, c2 = st.columns(2)
     with c1:
-        # UPDATED: Replaced use_container_width=True with width="stretch"
         if st.button("📋 Sample List", width="stretch"):
             st.session_state.nav_selection = "Sample List"
             st.rerun()
     with c2:
-        # UPDATED: Replaced use_container_width=True with width="stretch"
         if st.button("➕ Add Sample", width="stretch"):
             st.session_state.nav_selection = "Add Sample Entry"
             st.rerun()
@@ -286,7 +283,6 @@ def admin_view():
 
             st.markdown("<br>", unsafe_allow_html=True)
             
-            # UPDATED: Replaced use_container_width=True with width="stretch"
             submitted = st.form_submit_button("Save Record", width="stretch")
             
             if submitted:
@@ -321,7 +317,6 @@ def admin_view():
                     }
                     save_new_entry(new_record)
                     
-                    # --- PREDICTION MESSAGE UPDATE ---
                     if "High" in risk_label:
                         st.error(f"Result: {risk_label} ({proba:.0%}) - RECORD SAVED")
                     elif "Moderate" in risk_label:
@@ -336,7 +331,6 @@ def admin_view():
     st.markdown("<br><br>", unsafe_allow_html=True) 
     st.markdown("---")
     
-    # UPDATED: Replaced use_container_width=True with width="stretch"
     if st.button("Logout", width="stretch"):
         logout()
 
@@ -379,7 +373,6 @@ def user_view():
         elif 'Moderate' in risk:
             recommendation = "WARNING: Filtration or boiling recommended before use."
         else:
-            # Low Risk Message
             recommendation = "SAFE: This water source is safe to consume, but always be cautious and check for physical changes."
 
         st.markdown(f"""
@@ -409,7 +402,6 @@ def user_view():
     st.markdown("<br><br>", unsafe_allow_html=True) 
     st.markdown("---")
     
-    # UPDATED: Replaced use_container_width=True with width="stretch"
     if st.button("Logout", width="stretch"):
         logout()
 
