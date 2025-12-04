@@ -41,7 +41,7 @@ st.markdown("""
     [data-testid="stForm"], [data-testid="stVerticalBlock"] > div[style*="background-color"] {
         background-color: white;
         border-radius: 15px;
-        padding: 15px; /* Reduced from 20px */
+        padding: 15px; 
         box-shadow: 0 4px 15px rgba(0,0,0,0.05);
         border: 1px solid #E1E4E8;
     }
@@ -188,7 +188,9 @@ def login():
         email = st.text_input("Email Address", placeholder="user@safestream.com")
         password = st.text_input("Password", type="password", placeholder="••••••••")
         st.markdown("<br>", unsafe_allow_html=True)
-        submitted = st.form_submit_button("Sign In", use_container_width=True)
+        
+        # UPDATED: Replaced use_container_width=True with width="stretch"
+        submitted = st.form_submit_button("Sign In", width="stretch")
         
         if submitted:
             if email == "admin@safestream.com" and password == "Admin123":
@@ -220,11 +222,13 @@ def admin_view():
     st.markdown("<br>", unsafe_allow_html=True)
     c1, c2 = st.columns(2)
     with c1:
-        if st.button("📋 Sample List", use_container_width=True):
+        # UPDATED: Replaced use_container_width=True with width="stretch"
+        if st.button("📋 Sample List", width="stretch"):
             st.session_state.nav_selection = "Sample List"
             st.rerun()
     with c2:
-        if st.button("➕ Add Entry", use_container_width=True):
+        # UPDATED: Replaced use_container_width=True with width="stretch"
+        if st.button("➕ Add Sample", width="stretch"):
             st.session_state.nav_selection = "Add Sample Entry"
             st.rerun()
 
@@ -268,20 +272,22 @@ def admin_view():
             
             col1, col2 = st.columns(2)
             with col1:
-                ph = st.number_input("pH", 0.0, 14.0, 7.2)
+                ph = st.number_input("pH", 0.0, 20.0, 7.2)
                 temp = st.number_input("Temp (°C)", 0.0, 50.0, 25.0)
                 bod = st.number_input("BOD", 0.0, 100.0, 2.0)
                 tss = st.number_input("TSS", 0.0, 1000.0, 30.0)
+                fecal = st.number_input("Fecal Coliform", 0.0, 10000000.0, 100.0)
 
             with col2:
-                do = st.number_input("DO", 0.0, 20.0, 6.0)
+                do = st.number_input("DO", 0.0, 50.0, 6.0)
                 chloride = st.number_input("Chloride", 0.0, 500.0, 50.0)
-                phosphate = st.number_input("Phosphate", 0.0, 10.0, 0.1)
+                phosphate = st.number_input("Phosphate", 0.0, 100.0, 0.1)
                 color = st.number_input("Color", 0.0, 100.0, 15.0)
-                fecal = st.number_input("Coliform", 0.0, 10000.0, 100.0)
 
             st.markdown("<br>", unsafe_allow_html=True)
-            submitted = st.form_submit_button("Save Record", use_container_width=True)
+            
+            # UPDATED: Replaced use_container_width=True with width="stretch"
+            submitted = st.form_submit_button("Save Record", width="stretch")
             
             if submitted:
                 p_index = abs(ph - 7.0) + (tss / 10.0)
@@ -329,7 +335,9 @@ def admin_view():
     # Logout
     st.markdown("<br><br>", unsafe_allow_html=True) 
     st.markdown("---")
-    if st.button("Logout", use_container_width=True):
+    
+    # UPDATED: Replaced use_container_width=True with width="stretch"
+    if st.button("Logout", width="stretch"):
         logout()
 
 # --- 6. USER VIEW ---
@@ -400,7 +408,9 @@ def user_view():
     # Logout
     st.markdown("<br><br>", unsafe_allow_html=True) 
     st.markdown("---")
-    if st.button("Logout", use_container_width=True):
+    
+    # UPDATED: Replaced use_container_width=True with width="stretch"
+    if st.button("Logout", width="stretch"):
         logout()
 
 # --- 7. MAIN APP ROUTER ---
