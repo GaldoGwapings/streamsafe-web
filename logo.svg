@@ -1,0 +1,11 @@
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect width="200" height="200" fill="#f0f2f6" rx="20"/>
+
+    <g transform="translate(50, 50)">
+        <path d="M50 5L88.9711 27.5V57.5C88.9711 81.3965 50 95 50 95C50 95 11.0289 81.3965 11.0289 57.5V27.5L50 5Z" fill="#113F67" stroke="#34699A" stroke-width="3"/>
+
+        <path d="M50 25C50 25 32 43 32 58C32 71.2548 39.0589 82 50 82C60.9411 82 68 71.2548 68 58C68 43 50 25 50 25Z" fill="#34699A"/>
+
+        <path d="M56 38C56 38 62 44 62 52" stroke="#FDF5AA" stroke-width="3" stroke-linecap="round"/>
+    </g>
+</svg>
